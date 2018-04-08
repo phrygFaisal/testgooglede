@@ -135,4 +135,17 @@ public class HomePageTestStepDefinitions extends HomePageTest {
 
     }
 
+    @And ("^User clicks on Feeling lucky button$")
+    public void user_clicks_on_feeling_lucky_button(){
+        testPage.GetInstance(HomePage.class).hitTabKeyAfterTypingSearchQuery();
+        testPage.GetInstance(HomePage.class).clickOnLuckyBtn();
+    }
+
+    @Then ("^User should be redirected directly to (.*)$")
+    public void user_should_be_redirected_directly_to(String url){
+
+        assertEquals(BaseTest.testDriver.getCurrentUrl(),url);
+
+    }
+
 }

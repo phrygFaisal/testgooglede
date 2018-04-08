@@ -140,6 +140,21 @@ public class BasePage extends PageCreator {
 
     }
 
+     /*
+    METHOD to recreate user Keyboard press for TAB key
+    PARAMETER input is
+        Generic type property,
+    RETURNs void against the Generic type.
+
+    NOTE: GENERIC is modelled for WebElement
+     */
+
+    public String getCurrentUrlFromBrowser(){
+
+        return pageDriver.getCurrentUrl();
+
+    }
+
 
 
 
