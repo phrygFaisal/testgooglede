@@ -16,12 +16,14 @@ Feature: Google.de Homepage
     When User types marketlogic in search box
     And User performs RETURN action using keyboard
     Then User should observe Google Search Result Page
-#
-#
-#  Scenario: Search with Search button using Google Search Box
-#    Given User is on Google de site
-#    When User types Market Logic Software AG in search box
-#    And User clicks on Search Button
-#    Then User should observe Google Search Result Page
+
+  Scenario: Search with Search button using Google Search Box
+    Given User is on Google de site
+    When User types marketlogic in search box
+    And User clicks on the Search Button
+    Then User should observe Google Search Result Page
+
+  Scenario: 
+
 
 

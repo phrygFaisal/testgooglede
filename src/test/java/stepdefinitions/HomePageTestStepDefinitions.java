@@ -109,32 +109,20 @@ public class HomePageTestStepDefinitions extends HomePageTest {
 
     }
 
+    @And("^User clicks on the Search Button$")
+    public void user_clicks_on_the_search_button(){
+
+
+        testPage.GetInstance(HomePage.class).hitTabKeyAfterTypingSearchQuery();
+        //testPage.GetInstance(HomePage.class).waitOnSearchButtonClickable();
+        testPage.GetInstance(HomePage.class).clickOnSearchBtn();
+
+    }
+
     @Then("^User should observe Google Search Result Page$")
     public void user_should_observe_google_search_result_page(){
 
-//        List<WebElement> navigationList= testPage.GetInstance(SearchResultPage.class).getSearchResultNavigationList();
-//
-//        for(WebElement elem: navigationList)
-//            System.out.println(elem.getText());
-
         boolean finalResult = false;
-//
-//        List<Boolean> listOfVisibilityChecks = new ArrayList<>();
-//
-//        listOfVisibilityChecks.add(testPage.GetInstance(SearchResultPage.class).isAvailableMapsFilter());
-//        listOfVisibilityChecks.add(testPage.GetInstance(SearchResultPage.class).isAvailableShoppingFilter());
-//        listOfVisibilityChecks.add(testPage.GetInstance(SearchResultPage.class).isAvailableMehrFilter());
-//        listOfVisibilityChecks.add(testPage.GetInstance(SearchResultPage.class).isAvailableNewsFilter());
-//        listOfVisibilityChecks.add(testPage.GetInstance(SearchResultPage.class).isAvailableBilderFilter());
-//
-//        for(boolean status:listOfVisibilityChecks){
-//            if(status==true)
-//                finalResult = true;
-//
-//        }
-//
-//
-//        assertTrue(finalResult);
 
         List<WebElement> listOfSearchResults = testPage.GetInstance(SearchResultPage.class).getSearchResultList();
 
@@ -142,11 +130,8 @@ public class HomePageTestStepDefinitions extends HomePageTest {
             if (searchResultTitle.getText().toLowerCase().matches("market(.*)"))
                 finalResult=true;
         }
-//        if(listOfSearchResults.size()>0)
-//            finalResult = true;
+
         assertTrue(finalResult);
-
-
 
     }
 

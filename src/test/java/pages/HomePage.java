@@ -90,6 +90,16 @@ public class HomePage extends BasePage{
         this.wait.until(ExpectedConditions.presenceOfElementLocated(listSearchResult));
     }
 
+    /*
+    METHOD to wait on auto complete search suggestion
+    RETURNs void
+     */
+    public void waitOnSearchButtonClickable(){
+
+        this.wait.until(ExpectedConditions.visibilityOf(btnGoogleSearch));
+        //this.wait.until(ExpectedConditions.elementToBeClickable(btnGoogleSearch));
+    }
+
 
     /*
 //   METHOD to read text from the search box
@@ -105,6 +115,8 @@ public class HomePage extends BasePage{
    RETURNs void
     */
     public void clickOnSearchBtn(){
+
+        this.waitOnSearchButtonClickable();
 
         this.click(btnGoogleSearch);
     }
@@ -172,6 +184,11 @@ public class HomePage extends BasePage{
 
         this.hitReturnKey(searchBox);
 
+    }
+
+    public void hitTabKeyAfterTypingSearchQuery(){
+
+        this.hitTabAKey(searchBox);
     }
 
 
