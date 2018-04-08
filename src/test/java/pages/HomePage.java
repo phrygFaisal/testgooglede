@@ -1,6 +1,7 @@
 package pages;
 
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,26 +19,15 @@ import java.util.Map;
 
 public class HomePage extends BasePage{
 
-//    PropertiesManager propertiesManager;
-
     //constructor
     public HomePage (WebDriver driver) throws IOException {
         super(driver);
-
-//        propertiesManager = new PropertiesManager();
-
 
     }
 
 
     //use common property here LATER
     String baseUrl = "https://www.google.de";/*propertiesManager.getHomepageProperties("homepage_url");*/
-    //String logoId = propertiesManager.getHomepageProperties("google_logo_id");
-
-//    String searchBoxId = propertiesManager.getHomepageProperties("google_searchbox_id");
-
-
-
 
     //WebElements read from property LATER
     @FindBy(how=How.ID,using = "hplogo")
@@ -52,6 +42,16 @@ public class HomePage extends BasePage{
     @FindBy(how=How.NAME, using = "btnI")
     public WebElement btnFeelingLucky;
 
+    @FindBy(how = How.LINK_TEXT,using = "Bilder")
+    public WebElement linkBilder;
+
+    @FindBy(how=How.CLASS_NAME, using = "gb_Qc")
+    public WebElement linkGoogleApps;
+
+    By linkGoogleAppsNavigation = By.className("gb_3");
+
+
+//    @FindBy
 //    @FindBy(how=How.CLASS_NAME,using="sbqs_c")
 //    public WebElement searchBoxQueryString;
 
@@ -87,7 +87,7 @@ public class HomePage extends BasePage{
      */
     public void waitOnSearchSuggestion(){
 
-        this.wait.until(ExpectedConditions.presenceOfElementLocated(listSearchResult));
+        this.wait.until(ExpectedConditions.visibilityOfElementLocated(listSearchResult));
     }
 
     /*
@@ -101,6 +101,8 @@ public class HomePage extends BasePage{
     }
 
 
+
+
     /*
 //   METHOD to read text from the search box
 //   RETURNs String text
@@ -109,8 +111,7 @@ public class HomePage extends BasePage{
 //
 //        return this.readText(searchBoxQueryString);
 //    }
-
-      /*
+    /*
    METHOD to click on the search button
    RETURNs void
     */
@@ -119,6 +120,26 @@ public class HomePage extends BasePage{
         this.waitOnSearchButtonClickable();
 
         this.click(btnGoogleSearch);
+    }
+
+    /*
+  METHOD to click on the google Apps link
+  RETURNs void
+   */
+    public void clickOnGoogleAppsLink(){
+
+        if(this.isGoogleAppsLinkVisible())
+            this.click(linkGoogleApps);
+    }
+
+
+    /*
+  METHOD to click on the bilder button
+  RETURNs void
+   */
+    public void clickOnBilderBtn(){
+
+        this.click(linkBilder);
     }
 
     /*
@@ -150,6 +171,26 @@ public class HomePage extends BasePage{
 
     }
 
+    /*
+    METHOD to flag the availability/visibility of the Google Bilder link in page.
+    RETURNs Boolean value based on the result
+    */
+    public Boolean isGoogleBilderLinkVisible(){
+
+        return this.isAvailable(linkBilder);
+
+    }
+
+    /*
+    METHOD to flag the availability/visibility of the Google Apps link in page.
+    RETURNs Boolean value based on the result
+    */
+    public Boolean isGoogleAppsLinkVisible(){
+
+        return this.isAvailable(linkGoogleApps);
+
+    }
+
 
     /*
     METHOD to flag the availability/visibility of the Google Search Box in page.
@@ -172,10 +213,21 @@ public class HomePage extends BasePage{
     }
 
 
+
+
     public List<WebElement> getSearchList(){
+
+        this.isAvailable(listSearchResult);
 
         return pageDriver.findElements(listSearchResult);
 
+    }
+
+    public List<WebElement> getGoogleAppsNavigationList(){
+
+        this.isAvailable(linkGoogleAppsNavigation);
+
+        return pageDriver.findElements(linkGoogleAppsNavigation);
     }
 
     public void hitReturnKeyInSearchBox(){
@@ -190,6 +242,13 @@ public class HomePage extends BasePage{
 
         this.hitTabAKey(searchBox);
     }
+
+    public void hitBackspaceKeyAfterTypingSearchQuery(){
+
+        this.hitBackspaceKey(searchBox);
+    }
+
+
 
 
 //    //Go to LoginPage

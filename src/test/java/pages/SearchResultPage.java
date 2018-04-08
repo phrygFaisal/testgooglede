@@ -2,6 +2,7 @@ package pages;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -44,8 +45,6 @@ public class SearchResultPage extends BasePage {
     RETURNS List of WebElements corresponding to search query
      */
     public List<WebElement> getSearchResultList(){
-
-        //this.wait.until(ExpectedConditions.presenceOfElementLocated(searchResultPageNavigationPane));
 
         this.wait.until(ExpectedConditions.visibilityOfElementLocated(searchResultList));
         return pageDriver.findElements(searchResultList);
@@ -105,6 +104,28 @@ public class SearchResultPage extends BasePage {
         return this.isAvailable(locatorForMehr);
     }
 
+
+    /*
+   METHOD to flag the availability/visibility of the Search Result section in page.
+   RETURNs Boolean value based on the result
+   */
+    public Boolean areSearchResultsVisible(){
+
+        boolean result = false;
+
+        try{
+            WebElement element = pageDriver.findElement(searchResultList);
+
+            if(element.isDisplayed())
+                result = true;
+
+        }catch (NoSuchElementException elementNotFound){
+            result = false;
+        }
+
+        return result;
+
+    }
 
 
 }

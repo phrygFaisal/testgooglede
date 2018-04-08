@@ -141,6 +141,25 @@ public class BasePage extends PageCreator {
     }
 
      /*
+    METHOD to recreate user Keyboard press for BACKSPACE key
+    PARAMETER input is
+        Generic type property,
+    RETURNs void against the Generic type.
+
+    NOTE: GENERIC is modelled for WebElement
+     */
+
+    public <T>void hitBackspaceKey(T elementProperty){
+        if(elementProperty.getClass().getName().contains("By"))
+            pageDriver.findElement((By)elementProperty).sendKeys(Keys.BACK_SPACE);
+
+        else
+            ((WebElement)elementProperty).sendKeys(Keys.BACK_SPACE);
+
+    }
+
+
+     /*
     METHOD to recreate user Keyboard press for TAB key
     PARAMETER input is
         Generic type property,

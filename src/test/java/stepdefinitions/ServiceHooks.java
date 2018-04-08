@@ -11,7 +11,6 @@ import tests.HomePageTest;
 public class ServiceHooks {
 
     @Before
-
     public void initializeTest(){
         // Code to setup initial configurations
 
