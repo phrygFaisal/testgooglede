@@ -1,0 +1,35 @@
+package stepdefinitions;
+
+
+import cucumber.api.Scenario;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
+import pages.PageCreator;
+import tests.BaseTest;
+import tests.HomePageTest;
+
+public class ServiceHooks {
+
+    @Before
+
+    public void initializeTest(){
+        // Code to setup initial configurations
+
+        HomePageTest.testPage = new PageCreator(BaseTest.testDriver);
+
+    }
+
+    @After
+    public void embedScreenshot(Scenario scenario) {
+        if (scenario.isFailed()) {
+            try {
+                // Code to capture and embed images in test reports (if scenario fails)
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+
+//        BaseTest.testDriver.quit();
+    }
+}

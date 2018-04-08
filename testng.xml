@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<!--This test suite supports tests to be run against 3 popular web browsers. The test suite file is easily scalable.-->
+<!-- Simply create tests for new browsers under the tag "suite" using the following template-->
+
+    <!--Tests to be run against 'X' Browser
+    <test name="X Browser Test" >
+        <classes>
+            <class name="your class name"/>
+        </classes>
+    </test>-->
+
+
+<suite name="Google.de Homepage Test Suite" verbose="1" >
+
+    <!--Tests to be run against Chrome Browser-->
+    <test name="Chrome Browser Test" annotations="JDK" >
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.HomePageTest"/>
+            <!--<class name="com.marketsoft.example.demoTwo"/>
+            <class name="com.second.example.demoThree"/>-->
+        </classes>
+    </test>
+
+
+
+
+    <!--Tests to be run against Opera Browser
+    <test name="Opera Browser Test" >
+        <parameter name="browser" value="opera"/>
+        <classes>
+            <class name="com.marketsoft.tests.HomePageTest"/>
+            <class name="com.first.example.demoTwo"/>
+            <class name="com.second.example.demoThree"/>
+        </classes>
+    </test>-->
+</suite>
