@@ -2,6 +2,7 @@
 
 This implementation aims to automate 10 specific test scenarios written against google.de site. The scenarios along with the description can be found at the bottom of this document under the section **Test Scenarios**
 
+**NEED TO RENAME HOMEPAGESTEPDEFINITIONS FILE**
 
 ### Technical Details
 

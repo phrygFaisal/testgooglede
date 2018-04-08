@@ -52,8 +52,10 @@ public class HomePage extends BasePage{
     @FindBy(how=How.NAME, using = "btnI")
     public WebElement btnFeelingLucky;
 
-    @FindBy(how=How.CLASS_NAME,using="sbqs_c")
-    public WebElement searchBoxQueryString;
+//    @FindBy(how=How.CLASS_NAME,using="sbqs_c")
+//    public WebElement searchBoxQueryString;
+
+    By listSearchResult = By.className("sbqs_c");
 
     //WebElements end here
 
@@ -77,17 +79,26 @@ public class HomePage extends BasePage{
     public void writeOnSearchBox(String textToWrite){
 
         this.writeText(searchBox,textToWrite);
-        this.wait.until(ExpectedConditions.presenceOfElementLocated(new By.ByClassName("sbqs_c")));
     }
 
     /*
-   METHOD to read text from the search box
-   RETURNs String text
-    */
-    public String readSearchBox(){
+    METHOD to wait on auto complete search suggestion
+    RETURNs void
+     */
+    public void waitOnSearchSuggestion(){
 
-        return this.readText(searchBoxQueryString);
+        this.wait.until(ExpectedConditions.presenceOfElementLocated(listSearchResult));
     }
+
+
+    /*
+//   METHOD to read text from the search box
+//   RETURNs String text
+//    */
+//    public String readSearchBox(){
+//
+//        return this.readText(searchBoxQueryString);
+//    }
 
       /*
    METHOD to click on the search button
@@ -151,9 +162,15 @@ public class HomePage extends BasePage{
 
     public List<WebElement> getSearchList(){
 
-        return pageDriver.findElements(By.className("sbqs_c"));
+        return pageDriver.findElements(listSearchResult);
 
+    }
 
+    public void hitReturnKeyInSearchBox(){
+
+        searchBox.click();
+
+        this.hitReturnKey(searchBox);
 
     }
 

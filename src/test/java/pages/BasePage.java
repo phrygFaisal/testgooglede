@@ -7,6 +7,7 @@ In this class, we write all common resources.resources.properties.resources.feat
 
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -101,6 +102,29 @@ public class BasePage extends PageCreator {
             return ((WebElement)elementProperty).isDisplayed();
         }
     }
+
+
+     /*
+    METHOD to recreate user Keyboard press for RETURN key
+
+    PARAMETER input is
+        Generic type property,
+    RETURNs void against the Generic type.
+
+    NOTE: GENERIC is modelled for WebElement
+     */
+
+    public <T>void hitReturnKey(T elementProperty){
+        if(elementProperty.getClass().getName().contains("By"))
+            pageDriver.findElement((By)elementProperty).sendKeys(Keys.RETURN);
+
+        else
+            ((WebElement)elementProperty).sendKeys(Keys.RETURN);
+
+    }
+
+
+
 
 
 
