@@ -18,7 +18,8 @@ import pages.PageCreator;
 @CucumberOptions(
         features = "src/test/java/resources/features/HomePage.feature",
         glue = {"stepdefinitions"},
-        tags = {"~@Ignore"},
+        /*tags = {"~@Ignore"},*/
+        tags = {"@FunctionalTest"},
         format = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber-pretty",

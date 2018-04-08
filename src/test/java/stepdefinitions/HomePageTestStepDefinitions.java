@@ -259,4 +259,22 @@ public class HomePageTestStepDefinitions extends HomePageTest {
 
     }
 
+    @When("^User clicks on Einstellungen link$")
+    public void user_clicks_on_einstellungen_link(){
+
+        testPage.GetInstance(HomePage.class).clickOnEinstellungenLink();
+
+    }
+
+
+    @And("^User is presented with shortcut links to settings controls$")
+    public void user_is_presented_with_shortcut_links_to_settings_controls(){
+
+        assertTrue( testPage.GetInstance(HomePage.class).isErweiterteSuchenLinkVisible() &&
+                testPage.GetInstance(HomePage.class).isFeedbackGebenLinkVisible() &&
+        testPage.GetInstance(HomePage.class).isHilfeZurSucheLinkVisible() && testPage.GetInstance(HomePage.class)
+                .isProtokollLinkVisible() && testPage.GetInstance(HomePage.class).isSucheinstellungenLinkVisible());
+
+    }
+
 }

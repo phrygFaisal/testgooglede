@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import tests.BaseTest;
 
 
 import java.io.IOException;
@@ -47,6 +48,24 @@ public class HomePage extends BasePage{
 
     @FindBy(how=How.CLASS_NAME, using = "gb_Qc")
     public WebElement linkGoogleApps;
+
+    @FindBy(how=How.LINK_TEXT,using = "Einstellungen")
+    public WebElement linkEinstellungen;
+
+    @FindBy(how=How.LINK_TEXT,using = "Sucheinstellungen")
+    public WebElement linkSuchEinstellungen;
+
+    @FindBy(how=How.LINK_TEXT,using = "Hilfe zur Suche")
+    public WebElement linkHilfeZurSuche;
+
+    @FindBy(how=How.LINK_TEXT,using = "Feedback geben")
+    public WebElement linkFeedbackGeben;
+
+    @FindBy(how=How.LINK_TEXT,using = "Erweiterte Suche")
+    public WebElement linkErweiterteSuche;
+
+    @FindBy(how=How.LINK_TEXT, using = "Protokoll")
+    public WebElement linkProtokoll;
 
     By linkGoogleAppsNavigation = By.className("gb_3");
 
@@ -101,16 +120,19 @@ public class HomePage extends BasePage{
     }
 
 
-
-
     /*
-//   METHOD to read text from the search box
-//   RETURNs String text
-//    */
-//    public String readSearchBox(){
-//
-//        return this.readText(searchBoxQueryString);
-//    }
+ METHOD to click on the Einstellungen link
+ RETURNs void
+  */
+    public void clickOnEinstellungenLink(){
+
+
+        this.click(linkEinstellungen);
+
+    }
+
+
+
     /*
    METHOD to click on the search button
    RETURNs void
@@ -213,7 +235,65 @@ public class HomePage extends BasePage{
     }
 
 
+    /*
+    METHOD to flag the availability/visibility of the Einstellungen link in page.
+    RETURNs Boolean value based on the result
+    */
+    public Boolean isEinstellungenLinkVisible(){
 
+        return this.isAvailable(linkEinstellungen);
+
+    }
+
+    /*
+    METHOD to flag the availability/visibility of the link Sucheinstellungen link in page.
+    RETURNs Boolean value based on the result
+    */
+    public Boolean isSucheinstellungenLinkVisible(){
+
+        return this.isAvailable(linkSuchEinstellungen);
+
+    }
+
+    /*
+  METHOD to flag the availability/visibility of the link Erweiterte Suchen link in page.
+  RETURNs Boolean value based on the result
+  */
+    public Boolean isErweiterteSuchenLinkVisible(){
+
+        return this.isAvailable(linkErweiterteSuche);
+
+    }
+
+    /*
+   METHOD to flag the availability/visibility of the link Protokoll link in page.
+   RETURNs Boolean value based on the result
+   */
+    public Boolean isProtokollLinkVisible(){
+
+        return this.isAvailable(linkProtokoll);
+
+    }
+
+    /*
+  METHOD to flag the availability/visibility of the link Hilfe Zur Suche link in page.
+  RETURNs Boolean value based on the result
+  */
+    public Boolean isHilfeZurSucheLinkVisible(){
+
+        return this.isAvailable(linkHilfeZurSuche);
+
+    }
+
+    /*
+METHOD to flag the availability/visibility of the link Feedback geben link in page.
+RETURNs Boolean value based on the result
+*/
+    public Boolean isFeedbackGebenLinkVisible(){
+
+        return this.isAvailable(linkFeedbackGeben);
+
+    }
 
     public List<WebElement> getSearchList(){
 
