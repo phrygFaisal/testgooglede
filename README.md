@@ -50,3 +50,44 @@ Since MAVEN is used as the build tool in the project, most of the dependencies a
 
 ##### Configuration
 * In case of updating any component versions in the maven build, the properties section should be touched. Any version updated will be reflected in the actual component stated under the _**dependencies**_ section.
+
+
+##### Test Scenarios
+* Load Google.de site
+  * Navigates to google.de site and checks if page is loaded. Asserts on the Google logo.
+
+
+* Autocomplete suggestion on search phrase
+  * Checks the text suggested by autocomplete based on search. Uses an acceptance threshold of search suggestions by matching substring. Threshold is defined as 50%.
+
+
+* Autocomplete suggestion update on search phrase modification
+  * Checks the text suggested by autocomplete based on search followed by deleting some phrase and updating at runtime. Uses an acceptance threshold of search suggestions by matching substring. Threshold is defined as 50%.
+
+
+* Search using keyboard RETURN press on search phrase
+  * Checks search functionality on pressing RETURN key from keyboard after typing Search phrase. Asserts on search result page load.
+
+
+* Search using Search button on search phrase
+  * Checks search functionality on pressing RETURN key from keyboard after typing Search phrase. Asserts on search result page load.
+
+
+* Search using I'm Feeling lucky button on search phrase
+  * Checks search functionality on pressing Feeling Lucky button  after typing Search phrase. Asserts on search result page load.
+
+
+* Search Phrase does not match any documents on result
+  * Search with phrase that does not result in any result. Asserts on no search result page load.
+
+
+* Google Bilder Search Page is loaded
+  * Assert on loading Google search for only Bilder.
+
+
+* Apps button displays shortcut navigation to Google Applications
+  * Assert if navigation drawer is opened with Google Apps from google.de page.
+
+
+* Einstellungen link opens navigation to settings controls
+  * Assert if link opens the settings drawer in google.de page

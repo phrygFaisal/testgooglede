@@ -21,7 +21,12 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertFalse;
 
-public class HomePageTestStepDefinitions extends HomePageTest {
+
+/*
+    Class to implement glue code for Feature file
+
+ */
+public class TestStepDefinitions extends HomePageTest {
 
 
     List<WebElement> resultContainer;
@@ -136,10 +141,6 @@ public class HomePageTestStepDefinitions extends HomePageTest {
         assertTrue(finalResult);
 
     }
-
-
-
-
 
 
     @And("^User waits for AutoCompleteSuggestion$")

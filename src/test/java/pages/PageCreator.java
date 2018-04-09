@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 /*
-
+    Parent class to create page objects
  */
 public class PageCreator {
 
@@ -18,6 +18,7 @@ public class PageCreator {
 
     /*
     METHOD to create a new Page object to be tested.
+    USES pagefactory to instantiate the page objects
     RETURNs the newly created page
      */
     public <TPage extends BasePage> TPage GetInstance (Class<TPage> pageClass){

@@ -11,6 +11,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
+/*
+    Page class for Search Results page
+    Used to validate the search results based on search phrase
+ */
 public class SearchResultPage extends BasePage {
 
     public SearchResultPage(WebDriver driver){
@@ -19,25 +23,32 @@ public class SearchResultPage extends BasePage {
 
 
 
-    //Web Element locators.
+    //--------WebElement locators-------------
 
     @FindBy(how=How.ID, using="logo")
     WebElement logoGoogleSearchResultPage;
 
 
+    // search result list pane
     By searchResultList = By.className("r");
 
+    // link for Maps based on search phrase
     By locatorForLinkMaps = By.linkText("Maps");
+
+    // link for Shopping based on search phrase
     By locatorForLinkShopping = By.linkText("Shopping");
+
+    // link for News based on search phrase
     By locatorForLinkNews = By.linkText("News");
+
+    // link for Alle based on search phrase
     By locatorForAlle = By.linkText("Alle");
+
+    // link for Bilder based on search phrase
     By locatorForBilder = By.linkText("Bilder");
+
+    // link for Mehr based on search phrase
     By locatorForMehr = By.linkText("Mehr");
-
-
-
-
-
 
 
     /*

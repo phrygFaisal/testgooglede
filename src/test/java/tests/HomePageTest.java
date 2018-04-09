@@ -15,6 +15,10 @@ import org.testng.annotations.*;
 import pages.PageCreator;
 
 
+/*
+    Test Class for Google.de tests
+
+ */
 @CucumberOptions(
         features = "src/test/java/resources/features/HomePage.feature",
         glue = {"stepdefinitions"},
@@ -30,14 +34,6 @@ public class HomePageTest extends BaseTest{
 
         static public PageCreator testPage;
 
-//    @Test (priority = 0)
-//    public void navigateToGoogleDEPage(){
-//
-//        testPage.GetInstance(HomePage.class).goToHomepage();
-//
-//        Assert.assertTrue((testPage.GetInstance(HomePage.class)).isGoogleLogoVisible());
-//
-//    }
 
     private TestNGCucumberRunner testNGCucumberRunner;
 

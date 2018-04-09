@@ -1,6 +1,6 @@
 Feature: Google.de Homepage
 
-  @FunctionalTest @SmokeTest
+  @FunctionalTest
   Scenario: Load Google.de site
     When User navigates to homepage
     Then User should see Google Logo

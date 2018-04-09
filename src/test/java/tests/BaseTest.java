@@ -17,6 +17,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import pages.PageCreator;
 
+/*
+Base Class for all Test classes
+
+Maintains the Webdriver object for each test class
+
+Supports cross-browser driver instantiation.
+ */
 public class BaseTest {
 
     static public WebDriver testDriver;
@@ -24,6 +31,12 @@ public class BaseTest {
 
     final int timeout = 10;
 
+
+    /*
+    METHOD to facilitate cross-browser testing.
+    Takes parameter input from TestNG. See testng.xml file
+    Current testng.xml file only accounts for tests with firefox and chrome. Uncomment the snippets to account for additional browsers respectively. Be sure to add the driver executables under the project root.
+     */
     @BeforeClass
     @Parameters("browser")
     public void setUpBeforeClass(String browser) {
@@ -65,8 +78,6 @@ public class BaseTest {
                 testDriver = new ChromeDriver();
                 break;
         }
-
-
 
         wait = new WebDriverWait(testDriver,timeout);
 

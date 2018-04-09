@@ -18,20 +18,13 @@
         <cucumber-reporting.version>3.16.0</cucumber-reporting.version>
         <maven-resources-plugin>3.0.2</maven-resources-plugin>
         <maven-surefire-plugin>2.21.0</maven-surefire-plugin>
+        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+        <min-java.version>7</min-java.version>
 
     </properties>
 
     <dependencies>
 
-        <!-- JUnit Dependency EXCLUDED
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>-->
-
-        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
@@ -117,6 +110,7 @@
         <!--Cucumber dependency ends-->
     </dependencies>
 
+    <!--Find reports under Cucumber in Target folder-->
     <build>
         <plugins>
             <plugin>
@@ -161,10 +155,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>7</source>
-                    <target>7</target>
+                    <source>${min-java.version}</source>
+                    <target>${min-java.version}</target>
                 </configuration>
             </plugin>
         </plugins>
