@@ -12,33 +12,38 @@ This implementation aims to automate 10 specific test scenarios written against 
 * **SELENIUM** as the Driver
 * **JAVA** as the Selenium Client
 * **TestNG** as the Test Runner
-* **CUCUMBER** to cater for BDD com.marketsoft.tests
-* **SUREFIRE** plugin for maven for test Reporting.
+* **CUCUMBER** for scripting Gherkin tests and Reporting
 
 #### Environment Setup
 
-Set up the environment as per need of usage
+Implementation has been done with **JDK 10**. Get It [HERE.](http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html).
 
-* Browser executable need to be available in local directory. The driver should be placed under the project path **BLA BLA BLA**
+**Maven** must be installed. Get it [HERE.](https://maven.apache.org/download.cgi)
+
+**Browser driver** executable need to be available at directory root(**SEE** project structure section below).
   * Chrome browser driver for Selenium. Get it [HERE.](https://sites.google.com/a/chromium.org/chromedriver/downloads)
   * Firefox browser driver for Selenium. Get it [HERE.](https://github.com/mozilla/geckodriver/releases)
-  * Opera browser driver for Selenium. Get it [HERE.](https://github.com/operasoftware/operachromiumdriver/releases)
+  * Opera browser driver for Selenium. Get it [HERE.](https://github.com/operasoftware/operachromiumdriver/releases).
+  * Edge browser driver for Selenium. Get it [HERE](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/#downloads
+
+
+  (**NOTE:** Current commit supports only Chrome and Firefox browsers. **SEE ADDITIONAL NOTES** section below)
 
 
 
-###### Runtime Environment
 
-* Maven must be installed. Get it [HERE.](https://maven.apache.org/download.cgi)
-* JRE should be installed. Minimum Java version is 7.
+**ADDITIONAL NOTES:** Refer to [**link**](http://pragmatictestlabs.com/2018/01/30/cross-browser-testing-selenium/) for cross-browser Configuration.
 
-###### Development Environment
+##### Running the project using Terminal
+* Import the repository from github.
+* Ensure the driver executables are present in the project root directory.
 
-* Import the repository as maven project.
+
+
 * Setup Edit Configuration for the RUN.
   * Select Maven Run.
   * for arguments/command line add **package**
 
-* **Java SE 10** 64bit must be installed. Get It [HERE.](http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html)
 
 Since MAVEN is used as the build tool in the project, most of the dependencies are downloaded as the project is imported in the IDE. Auto Import must be switched to get such advantage. Else the dependencies are resolved during build time.
 

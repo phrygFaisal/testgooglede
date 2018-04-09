@@ -19,31 +19,39 @@
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.HomePageTest"/>
-            <!--<class name="com.marketsoft.example.demoTwo"/>
-            <class name="com.second.example.demoThree"/>-->
         </classes>
     </test>
+
     <!--Tests to be run against Firefox Browser-->
     <test name="Firefox Browser Test" annotations="JDK" >
         <parameter name="browser" value="firefox"/>
         <classes>
             <class name="tests.HomePageTest"/>
-            <!--<class name="com.marketsoft.example.demoTwo"/>
-            <class name="com.second.example.demoThree"/>-->
         </classes>
     </test>
 
 
-
-
+    <!--UN-COMMENT SNIPPETS BELOW FOR ADDITIONAL BROWSER TESTING SUPPORT-->
+    <!--MAKE SURE TO ADD CORRESPONDING DRIVER EXECUTABLES IN THE PROJECT ROOT-->
 
     <!--Tests to be run against Opera Browser
-    <test name="Opera Browser Test" >
+    <test name="Opera Browser Test" annotations="JDK" >
         <parameter name="browser" value="opera"/>
         <classes>
-            <class name="com.marketsoft.tests.HomePageTest"/>
-            <class name="com.first.example.demoTwo"/>
-            <class name="com.second.example.demoThree"/>
+            <class name="tests.HomePageTest"/>
+
         </classes>
     </test>-->
+
+    <!--Tests to be run against Microsoft Edge Browser
+    <test name="Microsoft Edge Browser Test" annotations="JDK" >
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="tests.HomePageTest"/>
+        </classes>
+    </test>-->
+
+
+
+
 </suite>

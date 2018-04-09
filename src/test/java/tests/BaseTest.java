@@ -5,6 +5,7 @@ import cucumber.api.testng.TestNGCucumberRunner;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -28,21 +29,37 @@ public class BaseTest {
     public void setUpBeforeClass(String browser) {
 
         switch (browser){
+
             case "chrome":
                 System.setProperty("webdriver.chrome.driver", "chromedriver");
                 testDriver = new ChromeDriver();
                 break;
+
             case "firefox":
                 System.setProperty("webdriver.gecko.driver", "geckodriver");
                 testDriver = new FirefoxDriver();
                 break;
+
+                //corresponding test snippet must be added in testng.xml.
             case "opera":
+
+                //add local path to launcherhere
+                String pathToOperaLauncher="";
+
                 OperaOptions options = new OperaOptions();
                 options.setBinary("operadriver");
-                //System.setProperty("webdriver.chrome.driver","operadriver");
+                System.setProperty("webdriver.opera.driver", "operadriver.exe");
+                options.setBinary(pathToOperaLauncher);
                 testDriver = new OperaDriver(options);
-
                 break;
+
+            //corresponding test snippet must be added in testng.xml.
+            case "edge":
+                System.setProperty("webdriver.edge.driver", "MicrosoftWebDriver.exe");
+                testDriver = new InternetExplorerDriver();
+                break;
+
+            //corresponding test snippet must be added in testng.xml.
             default:
                 System.setProperty("webdriver.chrome.driver","chromedriver");
                 testDriver = new ChromeDriver();

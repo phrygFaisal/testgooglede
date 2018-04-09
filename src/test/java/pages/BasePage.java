@@ -2,7 +2,9 @@ package pages;
 
 
 /*
-In this class, we write all common resources.resources.properties.resources.features and attributes of all testable pages.
+
+This class is a parent class for all Pages.
+It is expected to hold common actions that each page might offer, such as, click, read, write, visibile etc.
  */
 
 
@@ -173,10 +175,5 @@ public class BasePage extends PageCreator {
         return pageDriver.getCurrentUrl();
 
     }
-
-
-
-
-
 
 }

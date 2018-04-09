@@ -20,3 +20,9 @@ operadriver
 \.idea/
 
 target/
+
+chromedriver_mac64.zip
+
+geckodriver-v0.20.1-macos.tar.gz
+
+*.iml

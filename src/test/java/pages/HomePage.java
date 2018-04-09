@@ -18,6 +18,11 @@ import java.util.List;
 import java.util.Map;
 
 
+/*
+Page class for Google.de homepage.
+Implements and declares functions exclusive to this site only.
+Has a Corresponding test class to run tests against the features and functionalities this page provides.
+ */
 public class HomePage extends BasePage{
 
     //constructor
@@ -27,56 +32,66 @@ public class HomePage extends BasePage{
     }
 
 
-    //use common property here LATER
-    String baseUrl = "https://www.google.de";/*propertiesManager.getHomepageProperties("homepage_url");*/
 
-    //WebElements read from property LATER
+    String baseUrl = "https://www.google.de";
+
+    //---------page locators start here---------
+
+    //Google logo
     @FindBy(how=How.ID,using = "hplogo")
     public WebElement logoGoogle;
 
+    //google searchbox
     @FindBy(how=How.NAME, using = "q")
     public WebElement searchBox;
 
+    //google search button
     @FindBy(how=How.NAME, using = "btnK")
     public WebElement btnGoogleSearch;
 
+    //Feeling Lucky button
     @FindBy(how=How.NAME, using = "btnI")
     public WebElement btnFeelingLucky;
 
+    //Image based Search button
     @FindBy(how = How.LINK_TEXT,using = "Bilder")
     public WebElement linkBilder;
 
+    //Link to open navigation drawer for google apps.
     @FindBy(how=How.CLASS_NAME, using = "gb_Qc")
     public WebElement linkGoogleApps;
 
+    //Link to open Einstellungen
     @FindBy(how=How.LINK_TEXT,using = "Einstellungen")
     public WebElement linkEinstellungen;
 
+    //Link to open Sucheinstellungen
     @FindBy(how=How.LINK_TEXT,using = "Sucheinstellungen")
     public WebElement linkSuchEinstellungen;
 
+    //Link to open Hilfe zur Suche
     @FindBy(how=How.LINK_TEXT,using = "Hilfe zur Suche")
     public WebElement linkHilfeZurSuche;
 
+    //Link to open Feedback geben
     @FindBy(how=How.LINK_TEXT,using = "Feedback geben")
     public WebElement linkFeedbackGeben;
 
+    //Link to open Erweiterte Suche
     @FindBy(how=How.LINK_TEXT,using = "Erweiterte Suche")
     public WebElement linkErweiterteSuche;
 
+    //Link to open Protokoll
     @FindBy(how=How.LINK_TEXT, using = "Protokoll")
     public WebElement linkProtokoll;
 
+    //Alternative locator for Google Apps navigation drawer
     By linkGoogleAppsNavigation = By.className("gb_3");
 
-
-//    @FindBy
-//    @FindBy(how=How.CLASS_NAME,using="sbqs_c")
-//    public WebElement searchBoxQueryString;
-
+    //Search Result locator
     By listSearchResult = By.className("sbqs_c");
 
-    //WebElements end here
+    //---------Locators end here --------------
 
 
     //page methods
@@ -286,15 +301,20 @@ public class HomePage extends BasePage{
     }
 
     /*
-METHOD to flag the availability/visibility of the link Feedback geben link in page.
-RETURNs Boolean value based on the result
-*/
+    METHOD to flag the availability/visibility of the link Feedback geben link in page.
+    RETURNs Boolean value based on the result
+    */
     public Boolean isFeedbackGebenLinkVisible(){
 
         return this.isAvailable(linkFeedbackGeben);
 
     }
 
+
+    /*
+    METHOD to return list of search results for suggestion
+    RETURNs List of WebElements
+    */
     public List<WebElement> getSearchList(){
 
         this.isAvailable(listSearchResult);
@@ -303,12 +323,21 @@ RETURNs Boolean value based on the result
 
     }
 
+    /*
+    METHOD to return list of apps under google apps navigation drawer
+    RETURNs List of WebElements
+    */
     public List<WebElement> getGoogleAppsNavigationList(){
 
         this.isAvailable(linkGoogleAppsNavigation);
 
         return pageDriver.findElements(linkGoogleAppsNavigation);
     }
+
+    /*
+    METHOD to recreate RETURN key press on google search box
+    RETURNs void
+    */
 
     public void hitReturnKeyInSearchBox(){
 
@@ -318,6 +347,10 @@ RETURNs Boolean value based on the result
 
     }
 
+    /*
+    METHOD to recreate TAB key press on google search box
+    RETURNs void
+    */
     public void hitTabKeyAfterTypingSearchQuery(){
 
         this.hitTabAKey(searchBox);
@@ -327,16 +360,5 @@ RETURNs Boolean value based on the result
 
         this.hitBackspaceKey(searchBox);
     }
-
-
-
-
-//    //Go to LoginPage
-//    public LoginPage goToLoginPage (){
-//        click(signInButton);
-//        //I want to chain LoginPage's methods so I return LoginPage by initializing its elements
-//        return new PageFactory().initElements(driver,LoginPage.class);
-//    }
-
 
 }
