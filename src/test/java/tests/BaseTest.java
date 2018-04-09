@@ -86,19 +86,24 @@ public class BaseTest {
     }
 
 
-    public WebDriver getTestDriver(){
-        return this.testDriver;
-    }
+//    /*
+//    METHOD to return the
+//     */
+//    public WebDriver getTestDriver(){
+//        return this.testDriver;
+//    }
+
+
 
     @BeforeMethod
     public void setUpBeforeMethod(){
-
-//        testPage = new PageCreator(testDriver);
+        //do nothing here
     }
 
     @AfterClass
     public void tearDown(){
 
+        //quits the driver ands ends all sessions
         testDriver.quit();
     }
 
