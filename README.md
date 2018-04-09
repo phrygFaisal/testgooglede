@@ -15,6 +15,8 @@ This implementation aims to automate 10 specific test scenarios written against 
 
 The project is run using Maven build. Maven points to TestNG to run the tests. TestNG prepares the browser driver and points to Cucumber for the running tests against scenarios. The scenarios are present in a feature file which when parsed relates to associated glue code to run the tests. At runtime Cucumber is also configured to report the tests.
 
+**REPORTS** are not attached to the github repository. Please run the project at least once to see the reports. Ther are located under **{project root}/target/cucumber-reports/index.html**. Click on each scenario and expand to see details and attached screenshot.
+
 
 #### Environment Setup
 
